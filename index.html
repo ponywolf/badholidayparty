@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Bad Company Party</title>
+        <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+        <link rel="icon" type="image/png" href="http://www.badcompanyparty.com/favicon.png">
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta property="og:title" content="Drake Cooper's Bad Company Party Game">
+        <meta property="og:description" content="Welcome to Drake Cooper's Bad Company Party. Play the game, post your score and share with a friend to help Idaho Food Bank.">
+        <meta property="og:image" content="http://www.badcompanyparty.com/fb-badcompanyparty.gif">
+        <script type="text/javascript">
+            (function() {
+                var _extend = undefined;
+                Object.defineProperty(Object.prototype, 'extend', {
+                    get: function() {
+                        return _extend;
+                    },
+
+                    set: function(v) {
+                        _extend = v;
+                        return v;
+                    }
+                });
+
+                var _defineProperty = Object.defineProperty;
+                Object.defineProperty = function(o, n, d) {
+                    if (n == 'extend') {
+                        o[n] = d['value'];
+                    } else {
+                        return _defineProperty(o, n, d);
+                    }
+                };
+            })();
+        </script>
+    </head>
+    <body>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-548b69f41ae9629c" async="async"></script>
+
+        <script>
+        var addthis_share = {
+            templates: {
+                twitter: 'Play Drake Cooper\'s Bad Company Party and and help feed those in need: {{url}}'
+            }
+        }
+        </script>
+
+        <div id="donation-overlay">
+            <a id="dismiss" href="#">Dismiss</a>
+            <span>Invite a friend to our Bad Company Party! Drake Cooper will donate $1 to Idaho Food Bank for each of the first 1,000 social shares.
+              <br>
+              <br>
+              <a href="http://blog.drakecooper.com/2014/12/bad-company-party/">Click here</a> for more details.</span>
+        </div>
+
+        <!-- Canvas placeholder -->
+        <div id="screen"></div>
+
+        <!-- melonJS Library -->
+        <!-- build:js js/app.min.js -->
+        <script type="text/javascript" src="lib/melonJS-2.0.1.js"></script>
+
+        <!-- Game Scripts -->
+        <script type="text/javascript" src="js/game.js"></script>
+        <script type="text/javascript" src="js/resources.js"></script>
+
+        <script type="text/javascript" src="js/entities/entities.js"></script>
+        <script type="text/javascript" src="js/entities/HUD.js"></script>
+
+        <script type="text/javascript" src="js/screens/loading.js"></script>
+        <script type="text/javascript" src="js/screens/play.js"></script>
+        <script type="text/javascript" src="js/screens/title.js"></script>
+        <script type="text/javascript" src="js/screens/gameover.js"></script>
+        <!-- /build -->
+
+        <!-- Bootstrap & Mobile optimization tricks -->
+        <script type="text/javascript">
+            window.onReady(function onReady() {
+                game.onload();
+
+                // Mobile browser hacks
+                if (me.device.isMobile && !navigator.isCocoonJS) {
+                    // Prevent the webview from moving on a swipe
+                    window.document.addEventListener("touchmove", function (e) {
+                        e.preventDefault();
+                        window.scroll(0, 0);
+                        return false;
+                    }, false);
+
+                    // Scroll away mobile GUI
+                    (function () {
+                        window.scrollTo(0, 1);
+                        me.video.onresize(null);
+                    }).defer();
+
+                    me.event.subscribe(me.event.WINDOW_ONRESIZE, function (e) {
+                        window.scrollTo(0, 1);
+                    });
+                }
+            });
+        </script>
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-57711603-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+    </body>
+</html>
